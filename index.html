@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Openstreetmap Website</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+        <style>
+            #mapid{ height: 850px; width: 850px;}
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Simple Website with Leaflet</h1>
+        <div id="mapid"></div>
+        <script>
+
+            var mymap = L.map('mapid').setView([47.2770, 8.7150], 10.5);
+            
+            L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                subdomains: 'abcd',
+                minZoom: 1,
+                maxZoom: 16,
+                ext: 'png'
+            }).addTo(mymap);
+
+            var vapeNationIcon = L.icon({
+                iconUrl: 'vn.png',
+                iconSize: [50, 50]
+            })
+
+            var mTown = L.marker([47.25758, 8.68723]).addTo(mymap).bindPopup("<b>Hauptstadt vom Universum und meh</b>");
+            var vapeio = L.marker([47.41743, 8.59062], {icon: vapeNationIcon}).addTo(mymap).bindPopup("merci vapeio!");
+            var drecksDorf = L.marker([47.24044, 8.72197]).addTo(mymap).bindPopup("irgend es drecks dorf");
+            var andyHandy = L.marker([47.41314, 8.54224]).addTo(mymap).bindPopup("andy handy isch gsi");
+
+            var mTownCircle = L.circle([47.25758, 8.68723], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(mymap);
+
+            var mTownCircle2 = L.circle([47.26058, 8.68723], {
+                color: 'red',
+                fillColor: 'red',
+                fillOpacity: 0.5,
+                radius: 300
+            }).addTo(mymap);
+            
+            var drecksDorfCircle = L.circle([47.24044, 8.72197], {
+                color: 'brown',
+                fillColor: '#8B4513',
+                fillOpacity: 1,
+                radius: 500
+            }).addTo(mymap);
+
+            var andyHandyCircle = L.circle([47.41314, 8.54224], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(mymap);
+
+        </script>
+
+    </body>
+</html>
