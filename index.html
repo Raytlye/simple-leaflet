@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
         <!-- Make sure you put this AFTER Leaflet's CSS -->
         <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+        <script src="js/leaflet.ajax.min.js"></script>
         <style>
             #mapid{ height: 850px; width: 850px;}
         </style>
@@ -19,6 +20,10 @@
         <script>
 
             var mymap = L.map('mapid').setView([47.2770, 8.7150], 10.5);
+
+            var geojsonLayer = new L.GeoJSON.AJAX("GeoJSON/castles.geojson");
+
+            geojsonLayer.addTo(mymap);
             
             L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
                 attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -29,7 +34,7 @@
             }).addTo(mymap);
 
             var vapeNationIcon = L.icon({
-                iconUrl: 'vn.png',
+                iconUrl: 'img/vn.png',
                 iconSize: [50, 50]
             })
 
