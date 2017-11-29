@@ -34,15 +34,12 @@
     <div id="mapid"></div>
     <script>
         var mymap = L.map('mapid', {
-            maxZoom: 16
+            maxZoom: 18
         }).setView([47.2770, 8.7150], 10.5);
 
-        L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
-            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            subdomains: 'abcd',
-            minZoom: 1,
-            maxZoom: 16,
-            ext: 'png'
+        L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(mymap);
 
         var geoJsonData = ("GeoJSON/castles.geojson");
@@ -64,12 +61,12 @@
             iconSize: [50, 50]
         });
 
-        var mTown = L.marker([47.25758, 8.68723]).addTo(mymap).bindPopup("<b>Hauptstadt vom Universum und meh</b>");
+        //var mTown = L.marker([47.25758, 8.68723]).addTo(mymap).bindPopup("<b>Hauptstadt vom Universum und meh</b>");
         var vapeio = L.marker([47.41743, 8.59062], {
             icon: vapeNationIcon
         }).addTo(mymap).bindPopup("merci vapeio!");
-        var drecksDorf = L.marker([47.24044, 8.72197]).addTo(mymap).bindPopup("irgend es drecks dorf");
-        var andyHandy = L.marker([47.41314, 8.54224]).addTo(mymap).bindPopup("andy handy isch gsi");
+        /* var drecksDorf = L.marker([47.24044, 8.72197]).addTo(mymap).bindPopup("irgend es drecks dorf");
+        var andyHandy = L.marker([47.41314, 8.54224]).addTo(mymap).bindPopup("andy handy isch gsi"); */
 
         var mTownCircle = L.circle([47.25758, 8.68723], {
             color: 'blue',
@@ -78,17 +75,17 @@
             radius: 500
         }).addTo(mymap);
 
-        var mTownCircle2 = L.circle([47.26058, 8.68723], {
+        /* var mTownCircle2 = L.circle([47.26058, 8.68723], {
             color: 'red',
             fillColor: 'red',
             fillOpacity: 0.5,
             radius: 300
-        }).addTo(mymap);
+        }).addTo(mymap); */
 
         var drecksDorfCircle = L.circle([47.24044, 8.72197], {
             color: 'brown',
             fillColor: '#8B4513',
-            fillOpacity: 1,
+            fillOpacity: 0.5,
             radius: 500
         }).addTo(mymap);
 
